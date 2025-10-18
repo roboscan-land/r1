@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dam</title>
+
+  <!-- ===== Open Graph Meta ===== -->
+  <meta property="og:url" content="http://proectui8.tilda.ws/dam">
+  <meta property="og:title" content="dam">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://static.tildacdn.pro/tild3164-3935-4537-a565-633437353034/Layer_2.png">
+  <link rel="icon" href="https://static.tildacdn.pro/tild6431-3734-4630-b532-326438356631/Layer_2.png" type="image/x-icon" />
+  <link rel="canonical" href="http://proectui8.tilda.ws/dam" />
+
+  <!-- ===== Fonts & Styles ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-size: 18px;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 { font-size: inherit; }
+    @media (max-width: 600px) { body { font-size: 16px; } }
+
+    /* ===== Core Layout ===== */
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      height: 100vh;
+    }
+    .content {
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      padding: 20px;
+    }
+    .photo {
+      width: 204px;
+      height: 204px;
+      border-radius: 50%;
+      background: url("https://static.tildacdn.pro/tild3735-3839-4634-b061-306230306163/photo_2025-04-10_17-.jpg") center/cover no-repeat;
+      margin: 0 auto 20px;
+    }
+    .subs { color: #747474; font-size: 14px; margin-bottom: 10px; }
+    .name { color: #000; font-size: 27px; font-weight: 700; margin-bottom: 8px; }
+    .title { color: #000; font-size: 27px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+    .desc { color: #000; font-size: 17px; font-weight: 300; line-height: 1.6; margin-bottom: 20px; }
+    .button {
+      display: inline-block;
+      background: #00c4f9; color: #fff;
+      font-weight: 600; font-size: 21px;
+      border-radius: 30px; padding: 12px 24px;
+      text-decoration: none; transition: .3s ease;
+    }
+    .button:hover { background: #009ed3; }
+  </style>
+
+  <!-- ===== Meta Pixel + Advanced Matching (external_id, em, ph) ===== -->
+  <script>
+    // --- Helpers: получить параметр URL и собрать external_id ---
+    function getParam(name, url){
+      url = url || window.location.href;
+      name = name.replace(/[[\]]/g, "\\$&");
+      var re = new RegExp("[?&]"+name+"(=([^&#]*)|&|#|$)"), m = re.exec(url);
+      if (!m) return null;
+      return m[2] ? decodeURIComponent(m[2].replace(/\+/g, " ")) : '';
+    }
+    function collectExternalId(){
+      var v = getParam('start') || getParam('clickid') || getParam('sub') || null;
+      if (v) return v;
+      try { return localStorage.getItem('external_id') || null; } catch(e){ return null; }
+    }
+    (function persistExternalId(){
+      var eid = collectExternalId();
+      if (eid) { try { localStorage.setItem('external_id', eid); } catch(e){} }
+    })();
+
+    // --- Bootstrap Meta Pixel ---
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    // --- Advanced Matching (исправленный вариант) ---
+    var AM = {
+      external_id: collectExternalId() || undefined,
+      em: 'email@email.com',   // тестовое значение, можно заменить на динамическое
+      ph: '1234567890'         // тестовое значение, можно заменить на динамическое
+    };
+    fbq('init', '946062137525146', AM);
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=946062137525146&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- ===== End Meta Pixel ===== -->
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <div class="photo"></div>
+      <div class="subs">74 500 subscribers</div>
+      <div class="name">Дамир</div>
+      <div class="title">Күніне 40 мың теңгеден табыс тапқыңыз келе ме?</div>
+      <div class="desc">Кнопканы басыңыз! 👇</div>
+      <a href="https://t.me/damir_money_kz_bot?start=link_LSr0vswNu0"
+         class="button"
+         id="telegram-button">Телеграм</a>
+    </div>
+  </div>
+
+  <!-- ===== Click Event Tracking (Lead) ===== -->
+  <script>
+    (function(){
+      var btn = document.getElementById('telegram-button');
+      if (!btn) return;
+
+      function getParam(name, url){
+        url = url || window.location.href;
+        name = name.replace(/[[\]]/g, "\\$&");
+        var re = new RegExp("[?&]"+name+"(=([^&#]*)|&|#|$)"), m = re.exec(url);
+        if (!m) return null;
+        return m[2] ? decodeURIComponent(m[2].replace(/\+/g, " ")) : '';
+      }
+
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var href = btn.getAttribute('href');
+
+        // Отправим Lead и добавим полезные атрибуты
+        try {
+          fbq('track', 'Lead', {
+            external_id: (function(){ try{return localStorage.getItem('external_id')||null;}catch(e){return null;} })(),
+            utm_source: getParam('utm_source') || undefined,
+            utm_medium: getParam('utm_medium') || undefined,
+            utm_campaign: getParam('utm_campaign') || undefined
+          });
+        } catch(e) {}
+
+        // Дадим пикселю время отправиться
+        var jumped = false;
+        var go = function(){ if (jumped) return; jumped = true; window.location.href = href; };
+        setTimeout(go, 400);
+        document.addEventListener('visibilitychange', function(){
+          if (document.visibilityState === 'hidden') go();
+        }, { once: true });
+      });
+    })();
+  </script>
+</body>
+</html>
